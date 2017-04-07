@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'ticketfly/node-chromium-webgl'
+    }
+    
+  }
   stages {
     stage('info') {
       steps {
-        sh 'java -version'
+        sh 'npm -version'
       }
     }
   }
